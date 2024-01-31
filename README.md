@@ -33,9 +33,13 @@ Happy coding!
 ## **Compiling Instruction** 
 
 1. Type the following command to compile a specific file
+```bash
         g++ /file_name -std=c++17
+```
 2. Run a complied file
+```bash
         ./a.out
+```
         
 
 
