@@ -3,6 +3,8 @@
 
 int main(){
 
+    std ::cout <<"Hello World!" <<std::endl;
+
     int array0[] = {1, -1, 1, 1, -1, -1, 19, 20};
     int sum = prefix_sum(array0, sizeof(array0)/sizeof(array0[0]));
 
