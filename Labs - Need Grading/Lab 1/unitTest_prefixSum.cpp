@@ -20,6 +20,7 @@ TEST_CASE ("prefix sum")
 
     SUBCASE ("non-negative"){
         CHECK (non_negative_prefix_sum(test_array_0,0));
+        
         CHECK_FALSE (!non_negative_prefix_sum(test_array_0,0));
 
         CHECK(non_negative_prefix_sum(test_array_2, sizeof(test_array_2)/sizeof(test_array_2[0])));

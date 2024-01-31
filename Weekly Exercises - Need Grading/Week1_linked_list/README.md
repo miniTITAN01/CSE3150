@@ -1,6 +1,8 @@
 # WEEK 1 EXERCISE - NEED GRADING  
 
+
 ## **Compiling Instruction** 
+0. Ensure that Doctest is installed before running tests
 
 1. Type the following command to compile specific files
 ```bash
