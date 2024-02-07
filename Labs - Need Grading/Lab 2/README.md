@@ -5,13 +5,11 @@
 
 1. Type the following command to compile specific files
     - Checking out the output of 20 000 trials
-    
+    -  Running tests
+
 ```bash
         g++ fisher_yates.cpp main_parents.cpp 
-```
-
-    - Running tests 
-
+``` 
 ```bash
         g++ unitTest_fisherYates.cpp fisher_yates.cpp 
 ```
