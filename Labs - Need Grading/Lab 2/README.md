@@ -8,7 +8,7 @@
 ```bash
         g++ fisher_yates.cpp main_parents.cpp
 ```
-    - Running unit tests
+    * Running unit tests
 ```bash
         g++ unitTest_fisherYates.cpp fisher_yates.cpp 
 ```
