@@ -22,7 +22,6 @@
 - Total sequences generated in my case: **20 000 attempts**
 - Ratio of well-balanced lists to the total number of lists generated vary everytime. 
 - Ratio is calculted by **validSequence divided by trials** in a case of checking for well-balanced lists
-- 
 
 ## **Problem Explaination**
 
