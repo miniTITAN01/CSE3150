@@ -1,4 +1,4 @@
-# LAB 1 - NEED GRADING  
+# LAB 2 - NEED GRADING  
 
 ## **Compiling Instruction** 
 0. Ensure that Doctest is installed before running tests
