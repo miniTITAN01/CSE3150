@@ -7,6 +7,6 @@
 
 using namespace std;
 
-stack <int> get_ints_from_fie(string file_name)
+stack <int> get_ints_from_fie(string file_name);
 
 #endif
