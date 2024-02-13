@@ -4,24 +4,23 @@
 0. Ensure that Doctest is installed before running tests
 
 1. Type the following command to compile specific files
-    i)   Checking out the output of linked list with pointer jumping to the last node
-    ii)  Running tests
-    iii) Run tests with Valgrind to check for memory leaks
+    -  Checking out the output of linked list with pointer jumping to the last node
+    -  Running tests
     
-
 ```bash
         g++ linked_list.cpp linked_list_main.cpp
 ``` 
 ```bash
         g++ linked_list.cpp unittest_pointer_jumping.cpp
 ```
-```bash 
-        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./a.out
-
-```
 2. Run complied files/ Run tests
 ```bash
         ./a.out
+```
+3. Run tests with Valgrind to check for memory leaks
+```bash 
+        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./a.out
+
 ```
 
 ## **Problem Clarification**
