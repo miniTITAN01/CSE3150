@@ -92,6 +92,6 @@ NOTE: The absence of sequences with "more openings than closings" is expected ba
 and shuffling your sequences. The approach ensures an equal number of each type, 
 with shuffling only affecting the order, not the count. Thus, every sequence either becomes well-balanced 
 (if the order is correct) or fails to be well-balanced due to the order of parentheses, 
-not because there are inherently more openings than closings
+not because there are inherently more openings than closings.
 */
 

@@ -10,9 +10,9 @@ struct node {
 struct node *build_new_linked_list (int total_new_elements);
 
 void print_linked_list(struct node *start, int total_elements);
-void print_linked_list_by_jumpers( struct node *start, int number_of_nodes);
-void double_jumpers( struct node *first);
+void print_linked_list_by_jumpers( struct node *first, int number_of_nodes);
+void double_jumpers( struct node *first, int number_of_nodes);
 
-int delete_linked_list(struct node *first);
+int delete_linked_list(struct node *first, int number_of_nodes);
 
 #endif
