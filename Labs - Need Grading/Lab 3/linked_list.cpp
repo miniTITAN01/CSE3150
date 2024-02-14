@@ -89,19 +89,26 @@ void print_linked_list_by_jumpers( struct node *start, int number_of_nodes){
     }
 }
 void double_jumpers(struct node *first) {
-    if (first == NULL) {
-        cout << "The list is empty." << endl;
+    if (first == NULL || first->next == NULL) {
+        // If the list is empty or contains only one node, there's nothing to modify
+        cout << "The list is too short to double jump." << endl;
         return;
     }
 
-    struct node *linked_list = first;
-    
-    // Iterate to the last node, which we can find by following the jumper pointers
-    while (linked_list->jumper != linked_list) {
-        linked_list = linked_list->jumper;
+    struct node *current = first;
+    while (current != NULL && current->next != NULL && current->next->jumper != current->next) {
+        // Set the current node's jumper to the next node's jumper, effectively "doubling" the jump
+        current->jumper = current->next->jumper;
+        current = current->next;
     }
-    
-    // Now, linked_list points to the last node. Let's print its data.
-    cout << "Last node data (reached by jumpers): " << linked_list->data << endl;
+
+    // Now verify that the jumper adjustments lead to the last node
+    current = first; // Reset current to the start of the list
+    while (current->jumper != current) { // Follow jumpers until the last node
+        current = current->jumper;
+    }
+    // Print the last node's data to verify the correct setup
+    cout << "Last node data (reached by updated jumpers): " << current->data << endl;
 }
+
 
