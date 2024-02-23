@@ -1,4 +1,4 @@
-# LAB 3 - NEED GRADING  
+# LAB 4 - NEED GRADING  
 
 ## **Compiling Instruction** 
 0. Ensure that Doctest is installed before running tests
@@ -31,6 +31,7 @@
 **Step 4 & 5: Define P1 and P2**
 - P1 is defined as the path down to the first occurrence of the lowest valley. This means we take the sequence from the start up to and including the point where the lowest valley occurs.
 - P2 is the rest of the sequence, starting right after the lowest valley point up to the end of the list.
+
 **Step 6: Create P1'**
 - P1' is obtained by dropping the last -1 from P1. This operation effectively removes the last "closing parenthesis" from P1, adjusting it to ensure the sequence can be well-balanced.
 
