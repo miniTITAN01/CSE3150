@@ -6,8 +6,8 @@
 
 1. Type the following command to compile specific files
 ```bash
-        g++ student_Info.cpp unittest_Students.cpp
-        g++ student_Info.cpp main StudentGrade.cpp
+        g++ student_Info.cpp unittests_Students.cpp
+        g++ student_Info.cpp main_StudentGrade.cpp
 ```
 2. Run complied files
 ```bash

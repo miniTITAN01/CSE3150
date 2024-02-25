@@ -3,6 +3,19 @@
 #include "student_Info.h" // Make sure this includes the definition of the student struct and computeTotalScore function
 
 TEST_CASE("Edge Cases") {
+
+    SUBCASE("Missing Midterm Score") {
+        student student10 = {10, "Alex", 0, 90, {80, 85, 90}};
+        double expected_score10 = 0.3 * 0 + 0.3 * 90 + (((80 + 85 + 90) / 3.0) * 0.4);
+        CHECK(computeTotalScore(student10) == doctest::Approx(expected_score10));
+    }
+
+    SUBCASE("Missing Final Score") {
+        student student11 = {11, "Jordan", 85, 0, {75, 80, 85}};
+        double expected_score11 = 0.3 * 85 + 0.3 * 0 + (((75 + 80 + 85) / 3.0) * 0.4);
+        CHECK(computeTotalScore(student11) == doctest::Approx(expected_score11));
+    }
+
     
     SUBCASE("All 0's") {
         student student1 = {1, "Kay", 0, 0, {0, 0, 0}};
@@ -27,6 +40,13 @@ TEST_CASE("Edge Cases") {
         double expected_score4 = 0.3 * 78 + 0.3 * 91;
         CHECK(computeTotalScore(student4) == doctest::Approx(expected_score4));
     }
+    SUBCASE("Large Number of HW Scores") {
+        std::vector<int> large_hw_scores(100, 90); // 100 homework scores, all 90
+        student student12 = {12, "Chris", 88, 92, large_hw_scores};
+        double expected_score12 = 0.3 * 88 + 0.3 * 92 + (90 * 0.4);
+        CHECK(computeTotalScore(student12) == doctest::Approx(expected_score12));
+    }
+
 }
 
 TEST_CASE("Regular --> Multiple HW grades") {

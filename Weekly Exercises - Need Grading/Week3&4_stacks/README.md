@@ -1,4 +1,4 @@
-# WEEK 1 EXERCISE - NEED GRADING  
+# WEEK 3&4 EXERCISE - NEED GRADING  
 
 
 ## **Compiling Instruction** 
@@ -6,7 +6,7 @@
 
 1. Type the following command to compile specific files
 ```bash
-        g++ linked_list.cpp unitTest_linkedList.cpp
+        g++ StackQueueFunctions.cpp Stack_unit_tests.cpp 
 ```
 2. Run complied files
 ```bash
