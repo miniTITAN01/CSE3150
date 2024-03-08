@@ -21,8 +21,8 @@
 ## 2 examples that we use to test the Expensive-Digraph-exact-paths
 1. Special case
         ![Special Case](special.png)
-2. Barbell graph
-        ![Barbell Graph](barbell.png)
+2. Barbell graph - 10 nodes
+        ![Barbell Graph](Barbell_10.png)
 
 ## Problem Clarification
 

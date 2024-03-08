@@ -24,6 +24,19 @@ TEST_CASE("Reading matrix from stream") {
 }
 
 TEST_CASE("ExpensiveDiGraphExactPaths computation") {
+    // Simplified test case with a direct +1 path and no possible -1 paths
+    SUBCASE("Graph with a direct +1 path only") {
+    Matrix D1 = {{0, 1, INF}, {INF, 0, INF}, {INF, INF, 0}};
+    Matrix D0 = {{0, INF, INF}, {INF, 0, INF}, {INF, INF, 0}};
+    Matrix Dminus1 = {{0, INF, INF}, {INF, 0, INF}, {INF, INF, 0}};
+
+    ExpensiveDigraphExactPaths(D1, D0, Dminus1);
+
+    CHECK(D1[0][1] == 1); // Direct +1 path should be present
+    CHECK(D0[0][0] == 0); // Self-loops should be zero
+    CHECK(Dminus1[0][1] == INF); // No -1 paths expected
+    }
+
     SUBCASE("Test with predetermined matrix") {
         std::istringstream d1Input("0 1 2\n1 0 2\n2 1 0\n");
         std::istringstream d0Input("0 2 2\n2 0 2\n2 2 0\n");
@@ -59,7 +72,52 @@ TEST_CASE("ExpensiveDiGraphExactPaths computation") {
     }
 
 
-    // You can add more SUBCASEs to test other aspects of the algorithm
 }
 
+TEST_CASE("Fully connected graph with all +1 paths") {
+    // Define n based on the intended size of your graph
+    int n = 3; // This should match the dimensions of your matrices
 
+    // Define the D1 matrix for a fully connected graph with all +1 paths
+    Matrix D1 = {{0, 1, 1},
+                 {1, 0, 1},
+                 {1, 1, 0}};
+
+    // Initialize D0 with INF for all non-diagonal elements and 0 for diagonal (self-loops)
+    Matrix D0(n, std::vector<int>(n, INF));
+    for (int i = 0; i < n; ++i) D0[i][i] = 0; 
+
+    // Initialize Dminus1 with INF, as there are no -1 paths in this setup
+    Matrix Dminus1(n, std::vector<int>(n, INF)); 
+
+    ExpensiveDigraphExactPaths(D1, D0, Dminus1);
+
+    // Checks that D1 remains unchanged
+    for (int i = 0; i < D1.size(); ++i) {
+        for (int j = 0; j < D1[i].size(); ++j) {
+            if (i != j) {
+                CHECK(D1[i][j] == 1); // Confirm +1 paths
+            } else {
+                CHECK(D1[i][i] == 0); // Confirm self-loops
+            }
+        }
+    }
+
+    // Checks that no unexpected zero-cost paths are created in D0
+    for (int i = 0; i < D0.size(); ++i) {
+        for (int j = 0; j < D0[i].size(); ++j) {
+            if (i == j) {
+                CHECK(D0[i][j] == 0); // Self-loops should be zero
+            } else {
+                CHECK(D0[i][j] == INF); // No zero-cost paths should be created
+            }
+        }
+    }
+
+    // Checks that Dminus1 remains unchanged (no -1 paths)
+    for (int i = 0; i < Dminus1.size(); ++i) {
+        for (int j = 0; j < Dminus1[i].size(); ++j) {
+            CHECK(Dminus1[i][j] == INF);
+        }
+    }
+}
