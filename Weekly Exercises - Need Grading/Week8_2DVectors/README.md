@@ -20,7 +20,7 @@
 - The Vector which has magnitude in two directions i.e x-axis and y-axis can be called a 2D vector. The Vector which has magnitude in three directions i.e x-axis and y-axis, z-axis can be called a 3D vector.
 
 **Sin-Cos diagram**
-!(sin_cos diagram)[sin_cos.png]
+![EXAMPLE](sin_cos.png)
 
 ## **Function explanation**
 1. **square(const double & d)**
