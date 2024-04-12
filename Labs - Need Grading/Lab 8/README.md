@@ -6,15 +6,15 @@
 
 1. Type the following command to compile specific files (**Main Function**, **Unit Tests**)
 ```bash
-        g++ multiDimension_Vectors.cpp main_Vectors.cpp  
-        g++ g++ unit_test.cpp multiDimension_Vectors.cpp
+        g++ LinkedList.cpp main.cpp  
+        g++ LinkedList.cpp unittest.cpp 
  
 ```
 2. Run complied files
 ```bash
         ./a.out
 ```
-![EXAMPLE](3D_vector.png)
+
 
 ## **Problem Clarification**
 **Main Linked List with shared_ptr:**
