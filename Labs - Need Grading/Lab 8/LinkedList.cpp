@@ -98,22 +98,32 @@ void LinkedList::print_node_list_shared_ptrs() {
 
 void LinkedList::print_node_array_weak_ptrs(CopyNode* copyNodes, int size) {
     cout << "print_node_array_weak_ptrs START" << endl;
-    if (copyNodes == nullptr) {
-        cout << "CopyNode array is nullptr, likely not initialized." << endl;
+    
+    // Check if the CopyNode array is a nullptr
+    if (!copyNodes) {
+        cout << "CopyNode array is nullptr, likely not initialized or already deleted." << endl;
     } else {
+        // Track if all weak_ptrs have expired
         bool allExpired = true;
+
         for (int i = 0; i < size; ++i) {
             auto sp = copyNodes[i].weak_node_ptr.lock();
             if (sp) {
+                // If weak_ptr successfully locked to a shared_ptr, print its info
                 cout << reinterpret_cast<void*>(sp.get()) << " weak_ptr to shared_ptr count: [" << sp.use_count() << "]" << endl;
-                allExpired = false;
+                allExpired = false; // At least one weak_ptr is still alive
             } else {
+                // If weak_ptr is expired, indicate this
                 cout << "Node [" << i << "] weak_ptr is expired." << endl;
             }
         }
+
+        // If all weak_ptrs are expired, indicate all nodes have been deleted
         if (allExpired) {
-            cout << "All weak_ptrs have expired, indicating that the shared_ptrs no longer exist." << endl;
+            cout << "All weak_ptrs have expired, indicating that the shared_ptrs have been deleted and no longer manage any objects." << endl;
         }
     }
-    cout << "print_node_array_weak_ptrs END\n" << endl;
+    
+    cout << "print_node_array_weak_ptrs END" << endl;
 }
+
