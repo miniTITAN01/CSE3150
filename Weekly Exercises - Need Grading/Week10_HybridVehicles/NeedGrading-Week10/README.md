@@ -14,7 +14,7 @@
 ```bash
         ./a.out
 ```
-
+![EXAMPLE](output.png)
 ## **Problem Clarification**
 - The exercise involving the Vehicle, Electric, Gasoline, and Hybrid classes in C++ serves to illustrate key object-oriented programming concepts, offering practical insights into:
 
